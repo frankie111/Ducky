@@ -31,5 +31,12 @@ DELAY 1000
 ALT y
 DELAY 800
 
+REM copy Setup.ps1 to Windows
+STRING Copy-Item -Path Z:\Setup.ps1 -Destination C:\Windows\Setup\State\Setup.ps1
+ENTER
+
+DELAY 500
+
 REM run Setup:
-STRING IEX(IWR Z:\Setup.ps1 -UseBasicParsing)
+STRING IEX(IWR C:\Windows\Setup\State\Setup.ps1 -UseBasicParsing)
+ENTER
