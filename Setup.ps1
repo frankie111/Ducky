@@ -16,6 +16,9 @@ Copy-Item -Path Z:\Invoke-ConPtyShell.ps1 -Destination C:\Windows\Setup\State\In
 #copy service exe:
 Copy-Item -Path Z:\ShellCon.exe -Destination C:\Windows\Setup\State\ShellCon.exe
 
+#copy nssm.exe
+Copy-Item -Path Z:\nssm.exe -Destination C:\Windows\Setup\State\nssm.exe
+
 #create service:
 $ServiceName = "ShellCon"
 $ExecPath = "C:\Windows\Setup\State\ShellCon.exe"
@@ -23,6 +26,5 @@ $AppDirectory = "C:\Windows\Setup\State"
 
 nssm install $ServiceName $ExecPath
 nssm set $ServiceName AppDirectory $AppDirectory
-nssm set $ServiceName DisplayName $ServiceName
 nssm set $ServiceName Start SERVICE_DEMAND_START
 nssm set $ServiceName AppStopMethodConsole 30000
