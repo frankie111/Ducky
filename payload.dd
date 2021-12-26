@@ -11,12 +11,18 @@ DELAY 1000
 ALT y
 DELAY 800
 
-REM copy Setup.ps1 to Windows
-STRING Copy-Item -Path Z:\Setup.ps1 -Destination C:\Windows\Setup\State\Setup.ps1
+REM copy Setup.ps1 to Windows:
+REM get the drive letter for ducky:
+STRING $p = (Get-Volume -FriendlyName circuitpy).DriveLetter + ":\Setup.ps1"
+ENTER
+
+DELAY 1000
+
+STRING Copy-Item -Path $p -Destination C:\Windows\Setup\State\Setup.ps1
 ENTER
 
 DELAY 500
 
 REM run Setup:
-STRING IEX(IWR C:\Windows\Setup\State\Setup.ps1 -UseBasicParsing)
+STRING Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; IEX(IWR C:\Windows\Setup\State\Setup.ps1 -UseBasicParsing)
 ENTER
