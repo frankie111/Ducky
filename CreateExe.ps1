@@ -1,1 +1,0 @@
-ps2exe ".\ShellCon.ps1" ".\ShellCon.exe"
