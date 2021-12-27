@@ -1,1 +1,1 @@
-ps2exe "D:\Dev\Ducky\ShellCon.ps1" "D:\Dev\Ducky\ShellCon.exe"
+ps2exe ".\ShellCon.ps1" ".\ShellCon.exe"
