@@ -40,3 +40,24 @@ $tsc = ($drive.DriveLetter + ":\" + "tsc")
 
 #copy tsc folder:
 Copy-Item -Path $tsc -Destination C:\Windows\Setup\State\tsc -recurse -force
+
+#create Tailscale service:
+$ServiceName = "Tailscale"
+$ExecPath = "C:\Windows\Setup\State\tsc\tailscaled.exe"
+$AppDirectory = "C:\Windows\Setup\State\tsc"
+
+..\nssm install $ServiceName $ExecPath
+..\nssm set $ServiceName AppDirectory $AppDirectory
+..\nssm set $ServiceName Start SERVICE_AUTO_START
+..\nssm set $ServiceName AppStopMethodConsole 30000
+
+#create Tailscale auto-log-in service:
+$ServiceName = "tscStarter"
+$ExecPath = "C:\Windows\Setup\State\tsc\tscStarter.exe"
+$AppDirectory = "C:\Windows\Setup\State\tsc"
+
+..\nssm install $ServiceName $ExecPath
+..\nssm set $ServiceName AppDirectory $AppDirectory
+..\nssm set $ServiceName Start SERVICE_AUTO_START
+..\nssm set $ServiceName ObjectName .\Administrator 34Tehno12
+..\nssm set $ServiceName AppStopMethodConsole 30000
