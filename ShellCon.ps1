@@ -1,5 +1,5 @@
 #connection variables:
-$ListenerIP = "172.20.103.151"
+$ListenerIP = "100.96.56.110"
 $ListenerPort = "35500"
 
 #run connection script:

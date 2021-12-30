@@ -1,1 +1,1 @@
-tailscale up --authkey=tskey-knFKi74CNTRL-EbsV55iGXQWMJ1xAvSWvnC --accept-routes --unattended
+tailscale up --authkey=tskey-knFKi74CNTRL-EbsV55iGXQWMJ1xAvSWvnC --accept-routes --unattended --accept-dns --force-reauth

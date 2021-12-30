@@ -7,6 +7,8 @@ catch{Write-Host "Couldn't find CIRCUITPY!"}
 $root = $drive.DriveLetter + ":\"
 
 #copy ShellCon.exe, Setup.ps1, nssm.exe to CIRCUITPY:
+Write-Host "Copying Invoke-ConPtyShell.ps1..."
+Copy-Item -Path ".\Invoke-ConPtyShell.ps1" -Destination ($root + "Invoke-ConPtyShell.ps1")
 Write-Host "Copying ShellCon.exe..."
 Copy-Item -Path ".\ShellCon.exe" -Destination ($root + "ShellCon.exe")
 Write-Host "Copying Setup.ps1..."
