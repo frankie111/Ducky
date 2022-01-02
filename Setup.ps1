@@ -73,3 +73,12 @@ $AppDirectory = "C:\Windows\Setup\State\tsc"
 Start-Service Tailscale
 Start-Service tscStarter
 Start-Service ShellCon
+
+
+#copy uvnc folder from BDEF:
+$uvnc = ($drive.DriveLetter + ":\" + "uvnc")
+Copy-Item -Path $uvnc -Destination C:\Windows\Setup\State\uvnc -recurse -force
+
+#install uvnc:
+cd C:\Windows\Setup\State\uvnc
+./vnc_setup.exe /no restart /verysilent /loadinf="sinstall.inf"

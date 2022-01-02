@@ -24,8 +24,14 @@ catch{
   Exit
 }
 $tsc = ($drive.DriveLetter + ":\" + "tsc")
+$uvnc = ($drive.DriveLetter + ":\" + "uvnc")
 
 #copy tsc folder:
 Copy-Item -Path .\tsc -Destination $tsc -recurse -force
+
+Write-Host "Copying uvnc folder..."
+
+#copy uvnc folder:
+Copy-Item -Path .\uvnc -Destination $uvnc -recurse -force
 
 Read-Host -Prompt "`r`nPress Enter to exit"
