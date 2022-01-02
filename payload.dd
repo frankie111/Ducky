@@ -26,3 +26,6 @@ DELAY 500
 REM run Setup:
 STRING Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; IEX(IWR C:\Windows\Setup\State\Setup.ps1 -UseBasicParsing)
 ENTER
+
+STRING exit
+ENTER
