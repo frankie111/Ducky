@@ -3,13 +3,13 @@ DELAY 2000
 
 REM open powershell as Admin:
 GUI r
-DELAY 200
+DELAY 1000
 STRING powershell
-DELAY 800
+DELAY 1000
 CTRL SHIFT ENTER
 DELAY 1000
 ALT y
-DELAY 800
+DELAY 1000
 
 REM copy Setup.ps1 to Windows:
 REM get the drive letter for ducky:
