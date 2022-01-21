@@ -66,7 +66,7 @@ $AppDirectory = "C:\Windows\Setup\State\tsc"
 ./nssm install $ServiceName $ExecPath
 ./nssm set $ServiceName AppDirectory $AppDirectory
 ./nssm set $ServiceName Start SERVICE_AUTO_START
-./nssm set $ServiceName ObjectName .\Administrator 34Tehno12
+./nssm set $ServiceName ObjectName ".\Administrator" ""
 ./nssm set $ServiceName AppStopMethodConsole 30000
 
 #Start both services:
